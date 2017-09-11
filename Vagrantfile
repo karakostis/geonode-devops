@@ -15,9 +15,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 
   config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--name", "geonode-solr-foss4g-workshop", "--memory", "4096"]
+    vb.gui = true
+    vb.cpus = 2
+    vb.memory = 8192
+    #vb.customize ["modifyvm", :id, "--name", "geonode-solr-foss4g-workshop", "--memory", "4096"]
   end
 
-  config.vm.synced_folder "", "/workshop"
+  config.vm.synced_folder "~/workspaces/community/geonode.git", "/vagrant/geonode"
+  #config.vm.synced_folder "", "/workshop"
 
 end
